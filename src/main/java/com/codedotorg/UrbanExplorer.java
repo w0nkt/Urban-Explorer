@@ -1,7 +1,6 @@
 package com.codedotorg;
 
 import java.util.ArrayList;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -93,6 +92,7 @@ public class UrbanExplorer {
 
         if (!newCity.isEmpty()) {
             cities.add(new City(newCity));
+            sortCities();      // Sort after adding
             refreshList();
             inputField.clear();
         }
@@ -102,8 +102,7 @@ public class UrbanExplorer {
      * Sorts the cities in the 'cities' list based on their names.
      */
     public void sortCities() {
-        
-
+        cities.sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
     }
 
     /**
@@ -134,5 +133,4 @@ public class UrbanExplorer {
 
         return tempButton;
     }
-
 }
